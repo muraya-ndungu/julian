@@ -1,0 +1,481 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f4f8; /* Soft background for a clean look */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    position: relative;
+  }
+  
+  /* Add a starry background */
+  .home-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Light stars texture */
+    opacity: 0.3; /* Subtle starry effect */
+    z-index: -1; /* Position it behind content */
+    animation: twinkle 2s infinite alternate;
+  }
+  
+  /* Keyframes for twinkling stars */
+  @keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.3; }
+  }
+  
+  
+  /* Confetti Animation */
+/* Confetti Animations */
+@keyframes float {
+    0% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-15vh) rotate(360deg); }
+    100% { transform: translateY(100vh) rotate(720deg); }
+}
+
+@keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes drift {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(30vw); }
+}
+
+@keyframes sway {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10vh) rotate(180deg); }
+    100% { transform: translateY(20vh) rotate(360deg); }
+}
+
+/* Confetti Floating Elements */
+.confetti {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10; /* Ensuring confetti is visible above other content */
+}
+
+/* Use CSS Variables for Dynamic Color */
+:root {
+    --confetti-color-1: red;
+    --confetti-color-2: yellow;
+    --confetti-color-3: green;
+    --confetti-color-4: blue;
+    --confetti-color-5: pink;
+    --confetti-color-6: purple;
+    --confetti-color-7: teal;
+    --confetti-color-8: orange;
+}
+
+.confetti div {
+    animation: float infinite;
+    animation-timing-function: ease-in-out;
+    opacity: 0.9;
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--confetti-color-1); /* Default color */
+}
+
+/* Confetti Color & Size Customization */
+.confetti .confetti-piece {
+    width: 12px;
+    height: 12px;
+    animation: float 5s ease-in-out infinite;
+    animation-delay: 1s;
+    opacity: 0.9;
+}
+
+/* Enhanced Confetti Animations */
+@keyframes animate-confetti {
+    0% { transform: translateY(0) rotate(0); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.confetti .animate-confetti {
+    animation-name: animate-confetti;
+    animation-duration: 4s;
+    animation-delay: calc(0s + (random() * 3s));
+}
+
+/* Sparkle Effect Around Title */
+@keyframes sparkle-effect {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.sparkle {
+    position: absolute;
+    inset: 0;
+    animation: sparkle-effect 1s infinite;
+    z-index: 5; /* Placed below text for visual effect */
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 20%, rgba(255,255,255,0) 40%);
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Parallax Background for Extra Celebration Vibe */
+.parallax-background {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #fbbf24, #ffb3c1);
+    filter: blur(5px);
+    animation: parallax 12s infinite linear;
+    z-index: -1;
+}
+
+@keyframes parallax {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100vh); }
+}
+
+/* Add subtle bouncing effect to confetti pieces */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.confetti .bounce {
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+/* Add a rotation and floating effect to confetti */
+@keyframes rotate-float {
+    0% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(180deg) translateY(-10vh); }
+    100% { transform: rotate(360deg) translateY(10vh); }
+}
+
+.confetti .rotate-float {
+    animation: rotate-float 5s ease-in-out infinite;
+}
+
+ /*header*/
+ /* Header Section Styles */
+header {
+    position: relative;
+    text-align: center;
+    padding: 50px 20px;
+    margin-bottom: 80px;
+    font-size: 1.5rem;
+    background-color: #fdf1f2; /* Soft background for better contrast */
+    border-radius: 15px; /* Slightly rounded corners for a more modern feel */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Prevents overflow on border-radius */
+  }
+  
+  /* Header Title Styles */
+  header h1 {
+    font-size: 3.5rem; /* Larger header for more prominence */
+    font-weight: 700;
+    color: transparent;
+    background-clip: text;
+    background: linear-gradient(90deg, #ff5f6d, #ffc3a0); /* Bright gradient for a celebratory feel */
+    animation: bounce 1.5s ease-in-out infinite, gradientAnimation 3s infinite; /* Added gradient animation */
+    position: relative;
+    letter-spacing: 2px; /* Add spacing for a more open feel */
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for extra emphasis */
+    transition: text-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+  }
+  
+  /* Hover Effect for Header */
+  header h1:hover {
+    text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow on hover */
+    transform: scale(1.05); /* Slight scale-up on hover */
+  }
+  
+  /* Header Emoji Styles */
+  header h1 span {
+    font-size: 4rem; /* Increase size for a fun and prominent effect */
+    display: inline-block;
+    animation: spin 5s linear infinite, glowEffect 1.5s ease-in-out infinite, pulse 1.5s ease-in-out infinite; /* Added pulse effect */
+    color: #fff;
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out; /* Smooth transformation on hover */
+  }
+  
+  /* Hover Effect for Emoji */
+  header h1 span:hover {
+    transform: scale(1.2); /* Slight scale-up on hover */
+  }
+  
+  /* Typing Effect Styles */
+  header p {
+    margin-top: 20px;
+    font-size: 1.3rem; /* Slightly larger text for better readability */
+    color: #4a4a4a;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: color 0.3s ease-in-out; /* Smooth transition for text color */
+  }
+  
+  header p:hover {
+    color: #ff5f6d; /* Change text color on hover */
+  }
+  
+  /* Typing Effect Styles */
+  .react-typing-effect {
+    display: inline-block;
+    font-weight: 600;
+    color: #333;
+    font-size: 1.6rem;
+    margin-top: 10px;
+  }
+  
+  /* Typing Effect Cursor Customization */
+  .react-typing-effect span {
+    font-weight: bold;
+    color: #ff5f6d; /* Cursor color matching the theme */
+    font-size: 1.8rem;
+  }
+  
+  /* Bounce Animation for Header Title */
+  @keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-25px); }
+    100% { transform: translateY(0); }
+  }
+  
+  /* Gradient Animation for Header Title */
+  @keyframes gradientAnimation {
+    0% { background: linear-gradient(90deg, #ff5f6d, #ffc3a0); }
+    50% { background: linear-gradient(90deg, #ffc3a0, #ff5f6d); }
+    100% { background: linear-gradient(90deg, #ff5f6d, #ffc3a0); }
+  }
+  
+  /* Spin Animation for Emoji */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Glow Effect for Emoji */
+  @keyframes glowEffect {
+    0% { text-shadow: 0 0 5px #ff5f6d, 0 0 10px #ff5f6d; }
+    50% { text-shadow: 0 0 20px #ff5f6d, 0 0 30px #ff5f6d; }
+    100% { text-shadow: 0 0 5px #ff5f6d, 0 0 10px #ff5f6d; }
+  }
+  
+  /* Pulse Effect for Emoji */
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  /* Media Query for Responsiveness */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 2.8rem; /* Smaller font size on mobile */
+    }
+    header p {
+      font-size: 1.2rem;
+    }
+    header h1 span {
+      font-size: 3rem; /* Reduce emoji size on smaller screens */
+    }
+  }
+  
+  /* Media Query for Larger Devices */
+  @media (min-width: 1024px) {
+    header h1 {
+      font-size: 4rem; /* Larger title on larger screens */
+    }
+  }
+  
+  
+  /* Video Section */
+  .video-section {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-top: 40px;
+    overflow: hidden;
+  }
+  
+  .video-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+    transition: all 0.3s ease;
+  }
+  
+  .video-section:hover video {
+    filter: brightness(0.8); /* Slight brightening on hover */
+  }
+  
+  /* Image and Features Section */
+  .feature-photo {
+    margin-top: 40px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .feature-photo img {
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .feature-photo img:hover {
+    transform: scale(1.05); /* Add zoom effect on hover */
+  }
+  
+ /* Festive Elements (Floating Balls) */
+.festive-elements {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative; /* Ensures the positioning of the balls is relative to the container */
+  }
+  
+  /* Styling for each floating element */
+  .festive-elements div {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite ease-in-out;
+    transition: all 0.3s ease;
+    opacity: 0.8; /* Ensure opacity is set initially */
+  }
+  
+  /* Alternate colors for each ball */
+  .festive-elements div:nth-child(odd) {
+    background-color: #ff6f61; /* Red */
+  }
+  
+  .festive-elements div:nth-child(even) {
+    background-color: #ff9f80; /* Peach */
+  }
+  
+  /* Hover Effect */
+  .festive-elements div:hover {
+    transform: scale(1.2); /* Increase size on hover for more interaction */
+  }
+  
+  /* Bounce Animation */
+  @keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+  }
+  
+  /* Pulse Animation */
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.9; }
+  }
+  
+  /* Slow Spin Animation */
+  @keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Sway Effect Animation */
+  @keyframes sway {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+    100% { transform: translateX(0); }
+  }
+  
+  /* Floating Animation */
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  
+  /* Fade-in Effect */
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  
+  /* Animations */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  /* Parallax Effect */
+  .parallax-background {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #b3cce6, #cce5ff);
+    filter: blur(10px);
+    animation: parallax 20s infinite linear;
+    z-index: -1; /* Behind content */
+  }
+  /*nav*/
+
+  .twinkle-stars::before,
+.twinkle-stars::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle 2s infinite ease-in-out;
+  box-shadow: 
+    200px 100px 0 0 #fff, 
+    300px 300px 0 0 #fff, 
+    500px 200px 0 0 #fff, 
+    700px 500px 0 0 #fff, 
+    600px 100px 0 0 #fff;
+}
+
+.twinkle-stars::after {
+  animation-delay: 1s;
+  box-shadow: 
+    100px 50px 0 0 #fff, 
+    350px 150px 0 0 #fff, 
+    400px 300px 0 0 #fff, 
+    550px 100px 0 0 #fff;
+}
+
+/* Keyframe animation for twinkling effect */
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+}

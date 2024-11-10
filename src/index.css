@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.wishes-wall {
+    @apply p-4 text-center;
+  }
+  .wishes-container {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4;
+  }
+  .wish-card {
+    @apply bg-pink-100 rounded-lg p-4 shadow-md;
+  }
+  .balloon-container {
+    @apply flex gap-4 justify-center mt-8;
+  }
+  .balloon {
+    @apply text-6xl cursor-pointer;
+    transition: transform 0.2s;
+  }
+  .balloon:hover {
+    transform: scale(1.2);
+  }
+  .pop-message {
+    @apply mt-4 p-2 text-lg bg-yellow-100 rounded-lg;
+  }
+  .gift-registry {
+    @apply p-4 text-center;
+  }
+  .gift-list {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6;
+  }
+  .gift-item {
+    @apply bg-gray-100 p-4 rounded shadow-md;
+  }
+  .digital-card {
+    @apply p-4 border rounded-md bg-white shadow-md text-center;
+  }
+  .card-message {
+    @apply w-full p-2 mt-2 mb-4 border rounded-md;
+  }
+  .color-picker {
+    @apply mt-2 mb-4;
+  }
+  .balloon-game {
+    @apply text-center mt-8;
+  }
+  .balloons {
+    @apply flex gap-4 justify-center mt-4;
+  }
+  .balloon {
+    @apply p-4 text-4xl;
+  }
+    
