@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import WishesPage from './pages/WishesPage';  // Import the WishesPage component
@@ -8,7 +8,7 @@ import TicketPurchasePage from './pages/TicketPurchasePage';  // Import the Tick
 
 function App() {
   return (
-    <Router>
+    <Router basename="/julian">  {/* Set the base path to match GitHub Pages deployment */}
       <div className="app bg-blue-50 min-h-screen">
         <Routes>
           {/* Define routes for each page */}

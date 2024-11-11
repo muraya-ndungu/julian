@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactTypingEffect from 'react-typing-effect';
 
 const WelcomeSection = () => (
@@ -12,13 +11,11 @@ const WelcomeSection = () => (
         speed={100}
         eraseSpeed={50}
         typingDelay={500}
-        cursorRenderer={(cursor) => <span className="text-red-600">{cursor}</span>}
       />
     </p>
     <div className="mt-8 animate-bounce">
       <span className="text-5xl sm:text-6xl text-yellow-500">🎉</span>
     </div>
-    {/* Optional Button to Call to Action */}
     <div className="mt-10">
       <a 
         href="#invite"

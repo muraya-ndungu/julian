@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import './CountdownTile.css';
+import  { useState, useEffect } from 'react'; // Import hooks from React
+import './CountdownTile.css'; // Ensure your CSS is correctly imported
 
 const CountdownTile = () => {
   const [timeRemaining, setTimeRemaining] = useState({
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0
+    seconds: 0,
   });
 
   // Function to calculate the next Sunday date
@@ -25,28 +25,28 @@ const CountdownTile = () => {
     return nextSunday;
   };
 
-  const targetDate = getNextSunday().getTime();
+  const targetDate = getNextSunday().getTime(); // Get the target date as a timestamp
 
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
-      const nowInEAT = new Date(now.toLocaleString('en-US', { timeZone: 'Africa/Nairobi' }));
-      const distance = targetDate - nowInEAT.getTime();
+      const nowInEAT = new Date(now.toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })); // Get time in Nairobi timezone
+      const distance = targetDate - nowInEAT.getTime(); // Calculate the remaining time
 
       if (distance <= 0) {
-        clearInterval(interval);
+        clearInterval(interval); // Stop the countdown when the target time is reached
       } else {
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        setTimeRemaining({ days, hours, minutes, seconds });
+        setTimeRemaining({ days, hours, minutes, seconds }); // Update the state
       }
     }, 1000);
 
-    return () => clearInterval(interval);
-  }, [targetDate]);
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, [targetDate]); // The effect runs again only if targetDate changes
 
   return (
     <div className="countdown-tile">

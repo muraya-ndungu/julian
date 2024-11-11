@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 // Confetti Background Component
 const ConfettiBackground = () => {

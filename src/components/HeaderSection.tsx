@@ -45,7 +45,6 @@ const HeaderSection: React.FC = () => {
           speed={80}
           eraseSpeed={50}
           typingDelay={500}
-          cursorRenderer={(cursor) => <span className="text-gray-800">{cursor}</span>}
         />
       </p>
 

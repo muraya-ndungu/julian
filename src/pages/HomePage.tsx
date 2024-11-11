@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import HeaderSection from '../components/HeaderSection';
 import ConfettiBackground from '../components/ConfettiBackground';
 import FestiveElements from '../components/FestiveElements';
@@ -17,7 +17,7 @@ const VideoSection = () => (
       loop
       muted
       controls={false}
-      src="/src/assets/Happy Birthday Song!!!.mp4"
+      src="/julian/assets/Happy Birthday Song!!!.mp4"
     >
       Your browser does not support the video tag.
     </video>

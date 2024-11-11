@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { FaTicketAlt } from 'react-icons/fa';
 
 function TicketPurchasePage() {
-  const [ticketType, setTicketType] = useState('200'); // Default to General Ticket
+  // Define ticketType with a union type of the valid ticket values ('100', '200', '500', etc.)
+  const [ticketType, setTicketType] = useState<'100' | '200' | '500' | '1000' | '10000'>('200'); // Default to General Ticket
 
   // Payment links mapped by ticket price
-  const paymentLinks = {
+  const paymentLinks: { [key in '100' | '200' | '500' | '1000' | '10000']: string } = {
     '100': 'https://payment.intasend.com/pay/9a08aec7-a59b-4b87-972d-5a8911ea8142/',
     '200': 'https://payment.intasend.com/pay/7565f265-647b-4e18-8ddf-3147eaf878c8/',
     '500': 'https://payment.intasend.com/pay/93b367db-9695-4352-8468-584f10c0aa68/',
@@ -34,7 +35,7 @@ function TicketPurchasePage() {
         <FaTicketAlt size={24} />
         <select
           value={ticketType}
-          onChange={(e) => setTicketType(e.target.value)}
+          onChange={(e) => setTicketType(e.target.value as '100' | '200' | '500' | '1000' | '10000')} // Type assertion for ticketType
           className="ticket-select w-full p-2 bg-white border border-orange-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
         >
           <option value="200">🎈 General Ticket - 200 Ksh</option>

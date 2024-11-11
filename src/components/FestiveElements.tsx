@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const FestiveElements = () => (
   <div className="festive-elements flex flex-wrap justify-center gap-6 mt-12 animate-fade-in z-10 relative">

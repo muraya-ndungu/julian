@@ -1,21 +1,19 @@
-import { useState } from 'react';
-
 // Static Data with Image Paths
 const giftItems = [
-  { id: 1, name: 'Toy Car', price: 200, displayPrice: '200 KSh', imageUrl: '/src/assets/car.png' },
-  { id: 2, name: 'Story Book', price: 500, displayPrice: '500 KSh', imageUrl: '/src/assets/storybook.png' },
-  { id: 3, name: 'Birthday Outfit', price: 1000, displayPrice: '1000 KSh', imageUrl: '/src/assets/outfit.png' },
-  { id: 4, name: 'Lego Set', price: 100, displayPrice: '100 KSh', imageUrl: '/src/assets/legoset.png' },
-  { id: 5, name: 'Smart Watch', price: 500, displayPrice: '500 KSh', imageUrl: '/src/assets/smartwatch.png' },
-  { id: 6, name: 'Bicycle', price: 5000, displayPrice: '5000 KSh', imageUrl: '/src/assets/bicycle.png' },
-  { id: 7, name: 'Smart Toy', price: 10000, displayPrice: '10000 KSh', imageUrl: '/src/assets/jettoy.png' },
-  { id: 8, name: 'Sweet', price: 10, displayPrice: '10 KSh', imageUrl: '/src/assets/sweets.png' },
-  { id: 9, name: 'Cake', price: 20, displayPrice: '20 KSh', imageUrl: '/src/assets/cake.png' },
-  { id: 10, name: 'Yoghurt', price: 50, displayPrice: '50 KSh', imageUrl: '/src/assets/yoghurt.png' },
+  { id: 1, name: 'Toy Car', price: 200, displayPrice: '200 KSh', imageUrl: '/julian/assets/car.png' },
+  { id: 2, name: 'Story Book', price: 500, displayPrice: '500 KSh', imageUrl: '/julian/assets/storybook.png' },
+  { id: 3, name: 'Birthday Outfit', price: 1000, displayPrice: '1000 KSh', imageUrl: '/julian/assets/outfit.png' },
+  { id: 4, name: 'Lego Set', price: 100, displayPrice: '100 KSh', imageUrl: '/julian/assets/legoset.png' },
+  { id: 5, name: 'Smart Watch', price: 500, displayPrice: '500 KSh', imageUrl: '/julian/assets/smartwatch.png' },
+  { id: 6, name: 'Bicycle', price: 5000, displayPrice: '5000 KSh', imageUrl: '/julian/assets/bicycle.png' },
+  { id: 7, name: 'Smart Toy', price: 10000, displayPrice: '10000 KSh', imageUrl: '/julian/assets/jettoy.png' },
+  { id: 8, name: 'Sweet', price: 10, displayPrice: '10 KSh', imageUrl: '/julian/assets/sweets.png' },
+  { id: 9, name: 'Cake', price: 20, displayPrice: '20 KSh', imageUrl: '/julian/assets/cake.png' },
+  { id: 10, name: 'Yoghurt', price: 50, displayPrice: '50 KSh', imageUrl: '/julian/assets/yoghurt.png' },
 ];
 
-// Payment Links by Price
-const giftLinks = {
+// Payment Links by Price (Explicitly typed as Record<number, string>)
+const giftLinks: Record<number, string> = {
   10: 'https://payment.intasend.com/pay/6c98b103-7982-4157-8893-24a1aee23ef5/',
   20: 'https://payment.intasend.com/pay/0cb96d4e-4cd3-4108-bf3d-993502151e0e/',
   50: 'https://payment.intasend.com/pay/1e18a5c7-21da-4876-ae21-a6293a9f1fd8/',
@@ -45,7 +43,7 @@ const GiftItem = ({ item }: { item: { id: number; name: string; price: number; d
       <img
         src={item.imageUrl}
         alt={item.name}
-        onError={(e) => (e.currentTarget.src = '/src/assets/placeholder.png')}
+        onError={(e) => (e.currentTarget.src = '/julianbirthday/assets/placeholder.png')}
         className="w-full h-48 object-cover rounded-t-lg"
       />
       <div className="mt-4 text-center">
