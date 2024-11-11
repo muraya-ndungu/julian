@@ -52,7 +52,7 @@ function GamesPage() {
     if (balloonTypes[index] === 'bonus') {
       setTimer((prev) => prev + 5); // Add time
       setMessage("Bonus time! +5 seconds");
-      const bonusSound = new Audio('./src/assets/hooray-36461.mp3');
+      const bonusSound = new Audio('./src/assets/.mp3');
       bonusSound.play();
     } else if (balloonTypes[index] === 'penalty') {
       setTimer((prev) => prev - 3); // Subtract time
@@ -68,7 +68,7 @@ function GamesPage() {
     if (poppedBalloonIndex.size === 9) { // Check when the 10th balloon is popped
       setGameOver(true);
       setCelebration(true);
-      const gameOverSound = new Audio('./src/assets/game-over.mp3');
+      const gameOverSound = new Audio('./src/assets/hooray-36461.mp3');
       gameOverSound.play();
     }
   };
